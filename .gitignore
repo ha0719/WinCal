@@ -1,0 +1,24 @@
+## .NET
+bin/
+obj/
+dist/
+*.user
+*.suo
+*.cache
+*.log
+
+## Visual Studio
+.vs/
+*.vsidx
+*.vspscc
+
+## Build outputs
+build_output.txt
+
+## Test data
+*.ics
+
+## OS files
+Thumbs.db
+Desktop.ini
+.DS_Store

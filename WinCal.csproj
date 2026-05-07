@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <!-- 需要安装 Windows 10 SDK 后取消注释以下行以启用真实日历 API -->
+    <!-- <UseWinRT>true</UseWinRT> -->
+    <!-- <WindowsPackageType>None</WindowsPackageType> -->
+    <RootNamespace>WinCal</RootNamespace>
+    <AssemblyName>WinCal</AssemblyName>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon />
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0" />
+    <PackageReference Include="Ical.Net" Version="4.3.1" />
+    <!-- 需要安装 Windows 10 SDK 后取消注释以下行 -->
+    <!-- <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.1.1" /> -->
+  </ItemGroup>
+
+  <!-- 暂时排除需要 Windows SDK (WinRT) 的文件 -->
+  <ItemGroup>
+    <Compile Remove="Core\Services\WindowsCalendarService.cs" />
+  </ItemGroup>
+
+</Project>

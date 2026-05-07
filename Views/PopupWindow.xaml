@@ -1,0 +1,139 @@
+<Window x:Class="WinCal.Views.PopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WinCal.Views.Controls"
+        Title="miniCal"
+        Width="340" SizeToContent="Height"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Topmost="True"
+        ResizeMode="NoResize"
+        MaxHeight="560">
+
+    <Border x:Name="RootBorder"
+            Background="{DynamicResource BackgroundBrush}"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="12"
+            ClipToBounds="True">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />  <!-- 日历 -->
+                <RowDefinition Height="Auto" />  <!-- 分隔线 + 事件区域 -->
+            </Grid.RowDefinitions>
+
+            <!-- 月历控件 -->
+            <local:MonthCalendar Grid.Row="0"
+                                 x:Name="Calendar"
+                                 Margin="8,4,8,4" />
+
+            <!-- 分隔线 + 事件区域 -->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />  <!-- 分隔线 -->
+                    <RowDefinition Height="Auto" />  <!-- 标题栏（近期事件 + 齿轮） -->
+                    <RowDefinition Height="160" />    <!-- 事件列表（固定高度，恰好4条） -->
+                </Grid.RowDefinitions>
+
+                <!-- 分隔线 -->
+                <Border Grid.Row="0"
+                        Height="1"
+                        Background="{DynamicResource SeparatorBrush}"
+                        Margin="12,4,12,4" />
+
+                <!-- 标题栏：左侧"近期事件"，右侧刷新+齿轮 -->
+                <Grid Grid.Row="1" Margin="12,4,8,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Text="近期事件"
+                               FontSize="11"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextSecondaryBrush}"
+                               VerticalAlignment="Center" />
+
+                    <!-- 刷新按钮 -->
+                    <Button Grid.Column="1"
+                            x:Name="RefreshButton"
+                            Width="24" Height="24"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="OnRefreshClick"
+                            ToolTip="刷新日历"
+                            Margin="0,0,2,0">
+                        <Path Data="M17.65,6.35C16.2,4.9 14.21,4 12,4C7.58,4 4.01,7.58 4.01,12C4.01,16.42 7.58,20 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18C8.69,18 6,15.31 6,12C6,8.69 8.69,6 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"
+                              Fill="{DynamicResource TextSecondaryBrush}"
+                              Stretch="Uniform"
+                              Width="14" Height="14" />
+                    </Button>
+
+                    <!-- 齿轮图标按钮 -->
+                    <Button Grid.Column="2"
+                            x:Name="SettingsButton"
+                            Width="24" Height="24"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="OnSettingsClick"
+                            ToolTip="设置">
+                        <Path Data="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,13L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.04 4.95,18.95L7.44,17.95C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.95L19.05,18.95C19.27,19.04 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"
+                              Fill="{DynamicResource TextSecondaryBrush}"
+                              Stretch="Uniform"
+                              Width="14" Height="14" />
+                    </Button>
+                </Grid>
+
+                <!-- 事件列表（固定高度，超出滚动，底部留白保护圆角） -->
+                <ScrollViewer Grid.Row="2"
+                              x:Name="EventScrollViewer"
+                              VerticalScrollBarVisibility="Hidden"
+                              Padding="4,0,4,12"
+                              Margin="0,0,0,4">
+                    <StackPanel>
+                        <ItemsControl x:Name="EventListControl">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:EventItem EventData="{Binding}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <!-- End 标记：仅在事件列表末尾显示 -->
+                        <TextBlock x:Name="EndMarker"
+                                   Text="- End -"
+                                   FontSize="9"
+                                   Foreground="{DynamicResource TextSecondaryBrush}"
+                                   Opacity="0.5"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,6,0,2"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!-- 无事件占位文案 -->
+                <TextBlock Grid.Row="2"
+                           x:Name="NoEventsText"
+                           Text="暂无近期事件"
+                           FontSize="12"
+                           Foreground="{DynamicResource TextSecondaryBrush}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,8"
+                           Visibility="Collapsed" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

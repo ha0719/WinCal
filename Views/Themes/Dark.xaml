@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 背景色 -->
+    <Color x:Key="BackgroundColor">#FF2D2D2D</Color>
+    <Color x:Key="CardBackgroundColor">#FF383838</Color>
+
+    <!-- 强调色 -->
+    <Color x:Key="TodayAccentColor">#FF4CC2FF</Color>
+
+    <!-- 文本色 -->
+    <Color x:Key="TextPrimaryColor">#FFFFFFFF</Color>
+    <Color x:Key="TextSecondaryColor">#FF9D9D9D</Color>
+    <Color x:Key="TextDisabledColor">#FF5C5C5C</Color>
+    <Color x:Key="TextOnAccentColor">#FF000000</Color>
+
+    <!-- 分隔与边框 -->
+    <Color x:Key="SeparatorColor">#FF404040</Color>
+    <Color x:Key="BorderColor">#FF4A4A4A</Color>
+
+    <!-- 交互状态 -->
+    <Color x:Key="HoverColor">#FF383838</Color>
+    <Color x:Key="PressedColor">#FF454545</Color>
+    <Color x:Key="SelectedColor">#FF1A3A4F</Color>
+
+    <!-- 阴影 -->
+    <Color x:Key="ShadowColor">#66000000</Color>
+
+    <!-- 事件圆点 -->
+    <Color x:Key="EventDotColor">#FF4CC2FF</Color>
+
+    <!-- 画刷（从颜色派生） -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource CardBackgroundColor}" />
+    <SolidColorBrush x:Key="TodayAccentBrush" Color="{StaticResource TodayAccentColor}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}" />
+    <SolidColorBrush x:Key="TextDisabledBrush" Color="{StaticResource TextDisabledColor}" />
+    <SolidColorBrush x:Key="TextOnAccentBrush" Color="{StaticResource TextOnAccentColor}" />
+    <SolidColorBrush x:Key="SeparatorBrush" Color="{StaticResource SeparatorColor}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}" />
+    <SolidColorBrush x:Key="HoverBrush" Color="{StaticResource HoverColor}" />
+    <SolidColorBrush x:Key="PressedBrush" Color="{StaticResource PressedColor}" />
+    <SolidColorBrush x:Key="SelectedBrush" Color="{StaticResource SelectedColor}" />
+    <SolidColorBrush x:Key="EventDotBrush" Color="{StaticResource EventDotColor}" />
+
+</ResourceDictionary>
