@@ -1,10 +1,11 @@
-# WinCal — Windows 任务栏日历
+# WinminiCal — Windows 任务栏日历
 
-> 一款轻量、优雅的 Windows 11 任务栏日历工具，灵感来自 macOS 平台的 Itsycal。
+> 一款轻量、优雅的 Windows 11 任务栏日历工具，灵感来自 macOS 平台的 Itsycal，支持显示事件列表
 
 ## 截图
 
-https://github.com/ha0719/WinCal/blob/main/screenshot.jpeg
+![miniCal](https://github.com/ha0719/WinCal/blob/main/screenshot.jpeg "软件预览")
+
 
 ## 功能特性
 
