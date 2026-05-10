@@ -4,7 +4,7 @@
 
 ## 截图
 
-*(待补充)*
+https://github.com/ha0719/WinCal/blob/main/screenshot.jpeg
 
 ## 功能特性
 
